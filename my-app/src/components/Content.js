@@ -9,37 +9,35 @@ export default function Content() {
     ])
 
     const [newImageUrl, setNewImageUrl] = useState("")
-    
+
     function handleNewImage() {
-       
-        setImages([...images,
-            newImageUrl])
-        setNewImageUrl("")
+
+        setImages([...images, newImageUrl]);
+        setNewImageUrl("");
     }
     const handleChange = (event) => {
         console.log(event.target.value);
         setNewImageUrl(event.target.value);
-
-
     }
     console.log(images);
 
     return (
-        <div className="justify-between">
-            <div className='flex'>
-                {images.map((image, index) => (
-                    <div key={index}>
-                        <img src={image} width="200" />
-                    </div>
-                ))}
+        <div>
+            <div className='flex justify-between'>
+                {images.map((image, index) => {
+                    if (image != "") return (
+                        <div key={index}>
+                            <img src={image} width="200" />
+                        </div>
+                    )
+                })}
             </div>
             <div className="my-5">
                 <input type="text"
+                    className="p-2 m-2 rounded shadow border border-gray-800"
                     onChange={handleChange}
-                    value={newImageUrl}
-                    className="p-2 rounded shadow border border-gray-800" />
+                    value={newImageUrl} />
                 <button className='rounded bg-blue-700 p-2'
-
                     onClick={handleNewImage}>Add Image</button>
             </div>
         </div>
@@ -57,7 +55,7 @@ export default function Content() {
 
     //     }
     // })
-    
+
 // export default class Content extends Component {
 //     componentDidMount() {
 //         console.log("I am mounted");

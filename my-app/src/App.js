@@ -95,5 +95,4 @@ export default App;
 
     // useEffect(() => {
     //     console.log("Title is changed");
-
-    // }, [title])
+    // }, [title])//componentWillUpdate 
