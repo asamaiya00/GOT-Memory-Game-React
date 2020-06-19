@@ -3,6 +3,37 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Content from './components/Content';
 
+const App = () => {
+    const [title, setTitle] = useState("My React App")
+    const [isOpen, setIsOpen] = useState(null)
+
+    return (
+        <React.Fragment >
+            <Header title={title} home='Home'></Header>
+            <div className="h-screen">
+                <div className='flex justify-center'>
+                    <div className="w-1/2">
+                        <button className='bg-green-600 text-white p-2 rounded shadow'
+                            onClick={() => {
+                                setIsOpen(!isOpen)
+                                setTitle(!isOpen)
+                            }
+                            }>Toggle me</button>
+                        {isOpen ? <Content /> : null}
+                    </div>
+                </div>
+            </div>
+            <Footer></Footer>
+        </React.Fragment >
+    )
+}
+
+export default App;
+
+
+
+// CLASS BASED COMPONENT
+
 // class App extends React.Component {
 //     constructor(props) {
 //         super(props)
@@ -41,9 +72,7 @@ import Content from './components/Content';
 
 // console.log(<App />);
 
-const App = () => {
-    const [title, setTitle] = useState("My React App")
-    const [isOpen, setIsOpen] = useState(null)
+// useEffect HOOK
 
     // useEffect(() => {
     // component did mount and will update 
@@ -55,8 +84,6 @@ const App = () => {
     // useEffect(() => {
     //     console.log("I am app");
     // })
-
-
 
     // useEffect(() => {
     //     console.log("I am App");
@@ -70,26 +97,3 @@ const App = () => {
     //     console.log("Title is changed");
 
     // }, [title])
-
-    return (
-        <React.Fragment >
-            <Header title={title} home='Home'></Header>
-            <div className="h-screen">
-                <div className='flex justify-center'>
-                    <div className="w-1/2">
-                        <button className='bg-green-600 text-white p-2 rounded shadow'
-                            onClick={() => {
-                                setIsOpen(!isOpen)
-                                setTitle(!isOpen)
-                            }
-                            }>Toggle me</button>
-                    {isOpen ? <Content /> : null}
-                </div>
-            </div>
-            </div>
-        <Footer></Footer>
-        </React.Fragment >
-    )
-}
-
-export default App;
