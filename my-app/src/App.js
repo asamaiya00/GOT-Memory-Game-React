@@ -12,14 +12,8 @@ const App = () => {
             <Header title={title} home='Home'></Header>
             <div className="h-screen">
                 <div className='flex justify-center'>
-                    <div className="w-1/2">
-                        <button className='bg-green-600 text-white p-2 rounded shadow'
-                            onClick={() => {
-                                setIsOpen(!isOpen)
-                                setTitle(!isOpen)
-                            }
-                            }>Toggle me</button>
-                        {isOpen ? <Content /> : null}
+                    <div className="w-10/12">
+                        <Content />
                     </div>
                 </div>
             </div>
@@ -96,3 +90,12 @@ export default App;
     // useEffect(() => {
     //     console.log("Title is changed");
     // }, [title])//componentWillUpdate 
+
+
+    // <button className='bg-green-600 text-white p-2 rounded shadow'
+    //                         onClick={() => {
+    //                             setIsOpen(!isOpen)
+    //                             setTitle(!isOpen)
+    //                         }
+    //                         }>Toggle me</button>
+    //                     {isOpen ? <Content /> : null}
