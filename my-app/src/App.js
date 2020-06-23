@@ -19,8 +19,6 @@ const App = () => {
         "https://images.unsplash.com/photo-1592508908964-c9a7200b9115?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1322&q=80",
     ]
 
-
-
     const [state, dispatch] = React.useReducer(reducer, { images });
 
     // const state = {
