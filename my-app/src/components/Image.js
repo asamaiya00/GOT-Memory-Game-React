@@ -1,9 +1,14 @@
 import React, { useContext, useState } from 'react'
 import AppContext from '../store'
+import { REMOVE_IMAGE } from '../store/action'
 
 export default function Images({ image, index, myRand }) {
     const [isHovering, setIsHovering] = useState(false)
-    const [{ handleRemove }] = useContext(AppContext)
+    const [,dispatch] = useContext(AppContext)
+
+    const removeImage = () => {
+        dispatch({ type: REMOVE_IMAGE, payload: index });
+    }
 
     const handleMouseOver = () => {
         setIsHovering(true)
@@ -21,7 +26,7 @@ export default function Images({ image, index, myRand }) {
             <div className={`relative ${isHovering ? "" : "hidden"}`}>
                 <i
                     className='fas fa-times absolute right-0 cursor-pointer'
-                    onClick={() => handleRemove(index)}>
+                    onClick={() => removeImage()}>
                 </i>
             </div>
             <img src={image} alt="Please enter Valid Url"

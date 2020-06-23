@@ -1,13 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useContext,useState } from 'react';
 import Images from './Images';
 import AppContext from '../store';
+import { ADD_IMAGE } from '../store/action';
 
 export default function Content() {
-
+    const [,dispatch] = useContext(AppContext)
     const handleChange = (event) => {
         setNewImageUrl(event.target.value);
     }
-    const [{ handleNewImage, setNewImageUrl, newImageUrl }] = useContext(AppContext)
+
+    const addNewImage = () => {
+        dispatch({ type: ADD_IMAGE, payload: newImageUrl })
+    }
+
+    const [newImageUrl, setNewImageUrl] = useState("")
+
     return (
         <div >
             <Images />
@@ -17,7 +24,7 @@ export default function Content() {
                     onChange={handleChange}
                     value={newImageUrl} />
                 <button className='py-2 px-4 bg-yellow-600 text-white rounded mx-2'
-                    onClick={handleNewImage}>Add Image</button>
+                    onClick={addNewImage}>Add Image</button>
             </div>
         </div>
     )
