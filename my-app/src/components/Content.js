@@ -1,4 +1,4 @@
-import React, { useContext,useState } from 'react';
+import React, { useContext,useEffect,useState } from 'react';
 import Images from './Images';
 import AppContext from '../store';
 import { ADD_IMAGE } from '../store/action';
@@ -9,11 +9,18 @@ export default function Content() {
         setNewImageUrl(event.target.value);
     }
 
+    const urlRef = React.useRef()
+
+    useEffect (() => {
+        console.log(urlRef)
+        urlRef.current.focus()
+    },[])
+    const [newImageUrl, setNewImageUrl] = useState("")
+
     const addNewImage = () => {
+        if (newImageUrl === "") return
         dispatch({ type: ADD_IMAGE, payload: newImageUrl })
     }
-
-    const [newImageUrl, setNewImageUrl] = useState("")
 
     return (
         <div >
@@ -21,6 +28,7 @@ export default function Content() {
             <div className="my-10 flex justify-center">
                 <input type="text"
                     className="p-2 m-2 rounded shadow border border-gray-800"
+                    ref = {urlRef}
                     onChange={handleChange}
                     value={newImageUrl} />
                 <button className='py-2 px-4 bg-yellow-600 text-white rounded mx-2'
@@ -58,3 +66,11 @@ export default function Content() {
 //         )
 //     }
 // }
+
+
+//useRef
+    // id = 'newUrl'
+    // useEffect(() => {
+    //     const el = document.getElementById('newUrl')
+    //     el.focus()
+    // },[])

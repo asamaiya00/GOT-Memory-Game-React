@@ -3,7 +3,8 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Content from './components/Content';
 import AppContext, { reducer } from './store';
-
+import { Switch, Route, Router, BrowserRouter, } from "react-router-dom";
+import Login from './components/Login';
 const App = () => {
     const [title] = useState("My React App")
 
@@ -32,19 +33,29 @@ const App = () => {
 
 
     return (
-        <React.Fragment >
+        <BrowserRouter>
             <Header title={title} home='Home'></Header>
             <div className="h-screen">
                 <div className='flex justify-center'>
                     <div className="w-10/12">
-                        <AppContext.Provider value={[state, dispatch]}>
-                            <Content />
-                        </AppContext.Provider>
+                        <Switch>
+                            <Route path='/login'>
+                                <Login />
+                            </Route>
+                            <Route path='/'>
+                                <AppContext.Provider value={[state, dispatch]}>
+                                    <Content />
+                                </AppContext.Provider>
+
+                            </Route>
+                        </Switch>
+
+
                     </div>
                 </div>
             </div>
             <Footer></Footer>
-        </React.Fragment>
+        </BrowserRouter>
     )
 }
 
