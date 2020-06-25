@@ -6,7 +6,8 @@ export default function Header({ title, home }) {
         <header className='bg-orange-500 text-white p-4 flex'>
             <p className='mx-2'><Link to='/'>{title}</Link></p>
             <p className='mx-2'><Link to='/login'>Login</Link></p>
-            <p className='mx-2'>About</p>
+            <p className='mx-2'><Link to='/about'>About</Link></p>
+            <p className='mx-2'><Link to='/users'>Users</Link></p>
         </header>
 
     )
