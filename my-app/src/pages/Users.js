@@ -28,8 +28,8 @@ const Users = () => {
         e.preventDefault();
         Axios.post("https://reqres.in/api/users", form)
             .then((res) => {
+                console.log(res.data);
                 setInfo([...info, res.data])
-                
             }).catch(err => {
                 console.log(err)
             })
@@ -53,6 +53,7 @@ const Users = () => {
 
             {info.map((u) => (
                 <div key={u.id} className="flex my-2 justify-center">
+                    <p className="mx-2 text-blue-700 text-2xl" >{u.id}</p>
                     <p className="mx-2 text-blue-700 text-2xl" >{u.name}</p>
                     <p className="mx-2 text-blue-700 text-2xl" >{u.job}</p>
                     <button className="danger p-1 rounded bg-red-600" onClick={() => { deleteInfo(u.id) }} > Delete</button>
