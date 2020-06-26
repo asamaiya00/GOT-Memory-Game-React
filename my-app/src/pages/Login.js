@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import Cookies from "js-cookie"
@@ -10,6 +9,13 @@ function Login({ history }) {
 
 	const [error, setError] = useState("")
 
+	useEffect(() => {
+		const token = Cookies.get('token');
+		if (!token) {
+			history.push('/')
+		}
+		
+	}, [])
 	function handleChange(e) {
 		setform({ ...form, [e.target.name]: e.target.value });
 	}
@@ -18,15 +24,17 @@ function Login({ history }) {
 		e.preventDefault();
 		setError("")
 		setIsLoading(true)
-		axios.post("https://reqres.in/api/login?delay=1", form)
+		axios.post("/api/login?delay=1", form)
 			.then((res) => {
-				localStorage.setItem("token", res.data.token)
+				// localStorage.setItem("token", res.data.token)
 				console.log(res.data.token);
 				Cookies.set("token", res.data.token)
 				history.push("/")
+				
 			}).catch(err => {
+				setIsLoading(false)
 				console.log(err.response.data.error)
-				setError(false)
+				setError(err.response.data.error)
 			})
 	}
 
