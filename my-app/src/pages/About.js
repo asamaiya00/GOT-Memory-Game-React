@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { Component } from 'react';
 
-export default function About() {
-    return (
-        <div>
-            I am About
-        </div>
-    )
+function About() {
+  return <div>About</div>;
 }
 
+function UpperCase(WrappedComponent) {
+  return class About extends Component {
+    componentDidMount() {
+        console.log(this.props);
+        
+    }
+
+    render() {
+      return <WrappedComponent />;
+    }
+  };
+}
+
+export default UpperCase(About);

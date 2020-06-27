@@ -2,8 +2,9 @@
 import React from 'react'
 import Content from '../components/Content';
 import AppContext, { reducer } from '../store';
+import Auth from '../middleware/Auth';
 
-export default function Index() {
+function Index() {
 
     const images = [
         "https://images.unsplash.com/photo-1592421817004-876c579a18e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80",
@@ -26,3 +27,5 @@ export default function Index() {
 
     )
 }
+
+export default Auth(Index)

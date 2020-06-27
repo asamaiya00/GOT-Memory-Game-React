@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
-import Cookies from 'js-cookie';
-import { useHistory } from 'react-router-dom';
+import Auth from '../middleware/Auth';
 
 const Users = () => {
   const [users, setUsers] = useState({ data: [] });
@@ -11,19 +10,11 @@ const Users = () => {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const [error, setError] = useState('');
-
-  const history = useHistory();
-
   useEffect(() => {
-    const token = Cookies.get('token');
-    if (!token) {
-      history.push('/login');
-    }
+    
 
     const getUsers = async () => {
       const { data } = await Axios.get(`/api/unknown`);
-      //   console.log(data);
       setUsers(data);
     };
     getUsers();
@@ -35,7 +26,6 @@ const Users = () => {
 
   function handleForm(e) {
     e.preventDefault();
-    setError('');
     setIsLoading(true);
 
     Axios.post('/api/users', form)
@@ -46,7 +36,7 @@ const Users = () => {
       })
       .catch((err) => {
         setIsLoading(false);
-        setError(err.response.data.error);
+        console.log(err.response.data.error);
       });
   }
 
@@ -103,4 +93,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default Auth(Users);
