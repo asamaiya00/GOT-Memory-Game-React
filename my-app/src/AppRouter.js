@@ -4,6 +4,7 @@ import About from './pages/About';
 import Index from './pages/Index';
 import { Switch, Route } from 'react-router-dom';
 import Users from './pages/Users';
+import CardGame from './pages/CardGame';
 
 export default function AppRouter() {
   return (
@@ -17,6 +18,10 @@ export default function AppRouter() {
       <Route path="/users">
         <Users />
       </Route>
+      <Route path="/card-game">
+        <CardGame />
+      </Route>
+      
       <Route path="/">
         <Index />
       </Route>

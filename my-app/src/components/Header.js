@@ -21,6 +21,7 @@ export default function Header({ title }) {
             <p className='mx-2'><Link to='/'>{title}</Link></p>
             <p className='mx-2'><Link to='/about'>About</Link></p>
             <p className='mx-2'><Link to='/users'>Users</Link></p>
+            <p className='mx-2'><Link to='/card-game'>Card Game</Link></p>
             </div>
             
             <div className="flex">
