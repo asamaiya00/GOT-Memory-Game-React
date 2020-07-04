@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 
 function About() {
-  return <div>About</div>;
+  return <div>
+  About <br/>
+  <h1>Use "email": "eve.holt@reqres.in" and "password": "cityslicka"</h1>
+  </div>;
 }
 
 function UpperCase(WrappedComponent) {
