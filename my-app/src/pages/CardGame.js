@@ -47,7 +47,7 @@ const CardGame = () => {
       setcardImages(
         cardImages.map((image) => {
           if (image.src === flippedImages[0].src) {
-            if (flippedImages[0].src === flippedImages[1].src) {
+            if (flippedImages[0].src === flippedImages[1].src && flippedImages[0].id !== flippedImages[1].id) {
               image.isMatched = true;
               
             } else {

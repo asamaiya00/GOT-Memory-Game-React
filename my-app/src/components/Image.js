@@ -22,7 +22,7 @@ export default function Images({ image, index, myRand }) {
             onMouseOver={handleMouseOver}
             onMouseLeave={handleMouseLeave}
 
-            className='w-1/2 sm:w-1/4 flex justify-center p-1'>
+            className='w-1/2 sm:w-1/4 flex justify-center my-2'>
             <div className={`relative ${isHovering ? "" : "hidden"}`}>
                 <i
                     className='fas fa-times absolute right-0 cursor-pointer'
@@ -30,7 +30,7 @@ export default function Images({ image, index, myRand }) {
                 </i>
             </div>
             <img src={image} alt="Please enter Valid Url"
-                width="200"
+                width="350"
                 // className='border hover:border-6 hover:border-yellow-300'  />
 
                 className={`border ${myRand === index ? "opacity-100" : "opacity-50"}  hover:opacity-100 hover:border-yellow-300`} />

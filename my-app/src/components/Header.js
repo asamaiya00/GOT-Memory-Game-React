@@ -20,8 +20,7 @@ export default function Header({ title }) {
             <div className="flex">
             <p className='mx-2'><Link to='/'>{title}</Link></p>
             <p className='mx-2'><Link to='/about'>About</Link></p>
-            <p className='mx-2'><Link to='/users'>Users</Link></p>
-            <p className='mx-2'><Link to='/card-game'>Card Game</Link></p>
+            <p className='mx-2'><Link to='/card-game'>Memory Game</Link></p>
             </div>
             
             <div className="flex">
@@ -40,3 +39,4 @@ export default function Header({ title }) {
 
     )
 }
+//             <p className='mx-2'><Link to='/users'>Users</Link></p>
