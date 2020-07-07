@@ -22,7 +22,7 @@ export default function Images({ image, index, myRand }) {
             onMouseOver={handleMouseOver}
             onMouseLeave={handleMouseLeave}
 
-            className='w-1/4 flex justify-center my-2'>
+            className='w-1/2 sm:w-1/4 flex justify-center p-1'>
             <div className={`relative ${isHovering ? "" : "hidden"}`}>
                 <i
                     className='fas fa-times absolute right-0 cursor-pointer'

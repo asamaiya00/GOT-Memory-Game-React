@@ -16,7 +16,7 @@ export default function Header({ title }) {
     }
 
     return (
-        <header className='bg-orange-500 text-white p-4 flex justify-between'>
+        <header className='bg-purple-500 text-white p-4 flex justify-between'>
             <div className="flex">
             <p className='mx-2'><Link to='/'>{title}</Link></p>
             <p className='mx-2'><Link to='/about'>About</Link></p>

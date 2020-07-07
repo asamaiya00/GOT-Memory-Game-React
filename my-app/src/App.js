@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import AppRouter from './AppRouter';
 const App = () => {
-  const [title] = useState('My React App');
+  const [title] = useState('Images');
 
   const [state, dispatch] = useReducer(reducer, InitialState);
   // const state = {
@@ -23,7 +23,7 @@ const App = () => {
     <GlobalContext.Provider value={[state,dispatch]}>
       <BrowserRouter>
         <Header title={title} ></Header>
-        <div className="h-screen">
+        <div className="min-h-screen">
           <div className="flex justify-center">
             <div className="w-10/12">
               <AppRouter />

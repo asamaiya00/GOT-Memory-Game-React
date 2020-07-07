@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Auth from '../middleware/Auth';
 
 const CardGame = () => {
   const images = [
@@ -76,7 +75,7 @@ const CardGame = () => {
 };
 
 function Card({ img, flip }) {
-  const jokerimg =
+  const gotLogo =
     'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRs1eKwPhq7jK4ZEiw6J9CwibmEgiH8Yy6DwQ&usqp=CAU';
 
   const flipImage = () => {
@@ -84,16 +83,16 @@ function Card({ img, flip }) {
     flip(img.id);
   };
   return (
-    <div className="w-1/4 my-2" onClick={flipImage}>
+    <div className="w-1/2 sm:w-1/4 sm:my-1" onClick={flipImage}>
       {img.isMatched ? (
         <img src={img.src} width="400" alt='' className="p-5 h-64 opacity-50"  />
       ) : img.isShowing ? (
         <img src={img.src} width="400" alt='' className="p-5 h-64" />
       ) : (
-        <img src={jokerimg} width="400" alt='' className="p-5 h-64" />
+        <img src={gotLogo} width="400" alt='' className="p-5 h-64" />
       )}
     </div>
   );
 }
 
-export default Auth(CardGame);
+export default CardGame;

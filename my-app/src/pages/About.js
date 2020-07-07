@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 function About() {
   return <div>
-  About <br/>
-  <h1>Use "email": "eve.holt@reqres.in" and "password": "cityslicka"</h1>
+  <h1>Use email : password<br/>
+  eve.holt@reqres.in : cityslicka </h1>
   </div>;
 }
 
